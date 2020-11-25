@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no, email=no, adress=no" />
+    <title>中国银行双十二</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<div id="app">
+    <h1></h1>
+
+    <a id="startBtn" onclick="walk()">
+        <i></i>
+    </a>
+
+    <div id="person"></div>
+    <div id="mobikeRight"></div>
+    <div id="mobikeLeft"></div>
+    <div id="busRight"></div>
+    <div id="busLeft"></div>
+    <div id="shipLeft"></div>
+    <div id="shipRight"></div>
+    <div id="helloLeft"></div>
+    <div id="helloRight"></div>
+
+    <div class="sale-popup" id="sale1"></div>
+    <div class="sale-popup" id="sale2"></div>
+    <div class="sale-popup" id="sale3"></div>
+    <div class="sale-popup" id="sale4"></div>
+    <div class="sale-popup" id="sale5"></div>
+    <div class="sale-popup" id="sale6"></div>
+    <div class="sale-popup" id="sale7"></div>
+    <div class="sale-popup" id="sale8"></div>
+    <div class="sale-popup" id="sale9"></div>
+
+    <div class="popup" id="popupMobike" onclick="rideMobike()"></div>
+    <div class="popup" id="popupBus" onclick="takeBus()"></div>
+    <div class="popup" id="popupShip" onclick="boarding()"></div>
+    <div class="popup" id="popupHello" onclick="rideHello()"></div>
+    <div class="popup" id="popupFin"></div>
+
+    <footer id="benefit">
+        <a href="https://mp.weixin.qq.com/s?__biz=MjM5NjQyNjc2MA==&mid=2653421216&idx=3&sn=3c33c596cd0ad5124db9fe1a2e4828f6&chksm=bd3a3bc78a4db2d17f82e8effab6d3ed2e15a6a2dd798d32c5c11295f6a9351f8b583df97587&mpshare=1&scene=1&srcid=&sharer_sharetime=1576045172337&sharer_shareid=827b638455f82f7e771ce4ff33458b1f&key=2c7076f61bc0ac5bbd06d68ba282478ec8228cca7caa079aea0d416922d70886f5dc1dd8240253bf9f283dddfd4a556ecf5a4f18c05d0d37c9eb82be0decbe47a2f3e45e616da1f9aad407f529aec7b2&ascene=1&uin=MTg0NjY2NzMxMg%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&exportkey=A4lV%2B%2BP7O4uznjesWduL8WU%3D&pass_ticket=nXmoUQnYmQLsHm2uufMAdFjaw9jz8mVEhPFdyrTDEEU1cSXHcKsRcrLv8MTOtAlQ">美食优惠</a>
+        <a href="https://mp.weixin.qq.com/s?__biz=MjM5NjQyNjc2MA==&mid=2653421216&idx=4&sn=13132e564da7151ea3865b0c962c51af&chksm=bd3a3bc78a4db2d1001ebbbd1a88899861eddd8126fb5a6542ae24e105b8e3b51448c3a2a2ce&mpshare=1&scene=1&srcid=&sharer_sharetime=1576045180613&sharer_shareid=827b638455f82f7e771ce4ff33458b1f&key=cd4af178a4d015a4e863dd260626b310074d25bdbc5a9fc3e8ef4f2ab4789072171971423643220a9bff7f3b6436477970022adcf48aabc5b2ed8702dc5f825dd1d748e4b2ef65bf90c397a585b4dd59&ascene=1&uin=MTg0NjY2NzMxMg%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&exportkey=AyDMscoIu0hHgloUnUs83f4%3D&pass_ticket=nXmoUQnYmQLsHm2uufMAdFjaw9jz8mVEhPFdyrTDEEU1cSXHcKsRcrLv8MTOtAlQ">玩乐优惠</a>
+        <a href="https://mp.weixin.qq.com/s?__biz=MjM5NjQyNjc2MA==&mid=2653421093&idx=2&sn=fcf38a1dd6ddb61c55293ee257796be3&chksm=bd3a3b428a4db254eb706cf8bb918666b756707d5e7f8d0c0db0dc3fe34b1aa8b0eb9a3368d8&mpshare=1&scene=1&srcid=&sharer_sharetime=1576045204997&sharer_shareid=827b638455f82f7e771ce4ff33458b1f&key=cd4af178a4d015a4230781c006b0830c25b956e1511b05b6edbb2bb62128c17cfe70f012eed20e2378d7ee1e6837426ed0c05d9c78e406327d38682a8275217d73cba20dc3d465527869dcf3dd8e8913&ascene=1&uin=MTg0NjY2NzMxMg%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&exportkey=A0psKoNnNPcxoob3b1%2FS1bg%3D&pass_ticket=nXmoUQnYmQLsHm2uufMAdFjaw9jz8mVEhPFdyrTDEEU1cSXHcKsRcrLv8MTOtAlQ">交通优惠</a>
+        <a href="https://mp.weixin.qq.com/s?__biz=MjM5NjQyNjc2MA==&mid=2653421177&idx=4&sn=bf61c81538672b949e7d8f3198b973c0&chksm=bd3a3b1e8a4db20899feefdc59b32d343d5f0d26b6d2a9bf55e07ee0b54f718ce8eb81b096ae&mpshare=1&scene=1&srcid=&sharer_sharetime=1576045192498&sharer_shareid=827b638455f82f7e771ce4ff33458b1f&key=592ffd72c468c769381ba30b60385e137709a7f923619f78747c5bf0a6ca355a85d9beb23a3e95211f9dc5c53db204c66187c7386f137f2e1a7e02d30d55b6d4b5cf79a1e40369b0c769a941af29460b&ascene=1&uin=MTg0NjY2NzMxMg%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&exportkey=A%2FxMAl9lHO7E9etyeXBXpE0%3D&pass_ticket=nXmoUQnYmQLsHm2uufMAdFjaw9jz8mVEhPFdyrTDEEU1cSXHcKsRcrLv8MTOtAlQ">购物优惠</a>
+        <a href="https://mp.weixin.qq.com/s?__biz=MjM5NjQyNjc2MA==&mid=2653421177&idx=2&sn=bfcc2a8d3a9ba77ec3ef8897231dcc0b&chksm=bd3a3b1e8a4db208bbde475a235d9816d9cc506205b5d82c88d486b88512ff93f66d57330fe5&mpshare=1&scene=1&srcid=&sharer_sharetime=1576045198191&sharer_shareid=827b638455f82f7e771ce4ff33458b1f&key=592ffd72c468c76991a4aa80ff7f844bbb1998979dbc0d1cc44ec72f0bf940416b264cd05bb7d12b0715f2373f9a41833e5348341fc1606f75dfdf8f6b88444edccf599d1868e6eba7e9787c27b9dae4&ascene=1&uin=MTg0NjY2NzMxMg%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&exportkey=AwV2ApBJtR92uL2SSb3E9nM%3D&pass_ticket=nXmoUQnYmQLsHm2uufMAdFjaw9jz8mVEhPFdyrTDEEU1cSXHcKsRcrLv8MTOtAlQ">签证优惠</a>
+        <a href="https://mp.weixin.qq.com/s?__biz=MjM5NjQyNjc2MA==&mid=2653421216&idx=5&sn=b7c9b0f4bdaa8d043d5373a00b8973f9&chksm=bd3a3bc78a4db2d17015e1b5d8b19ea488cebe309b72e2c4dd57d8b733e3d4a939be1ef89484&mpshare=1&scene=1&srcid=&sharer_sharetime=1576045186712&sharer_shareid=827b638455f82f7e771ce4ff33458b1f&key=3a64fb0094aae4e0adae762eedb051469c82f3e85dfa490381c21d5c8c44f5a619a4f2d74c0b4e34a441db429a1dafa200296f9c0c0402fdac1888e33494cb91338d76006649f163b443b12d0a155b60&ascene=1&uin=MTg0NjY2NzMxMg%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&exportkey=AwJhFNP13GkS%2BQd3uZouiIo%3D&pass_ticket=nXmoUQnYmQLsHm2uufMAdFjaw9jz8mVEhPFdyrTDEEU1cSXHcKsRcrLv8MTOtAlQ">更多优惠</a>
+    </footer>
+</div>
+</body>
+
+<script type="text/javascript">
+    /**
+     * 简易自适应方案
+     * @param designWidth：设计稿宽度
+     * @param rem2px：rem换算px的比值（一般就使用100）
+     */
+    ((designWidth, rem2px) => {
+        let setBaseFontSize = () => {
+            setTimeout(() => {
+                let baseFontSize = window.screen.width / (designWidth / rem2px);
+                document.getElementsByTagName('html')[0].style.fontSize = baseFontSize + 'px';
+            }, 50);
+        };
+        window.addEventListener('resize', () => {
+            setBaseFontSize();
+        });
+        window.addEventListener('orientationchange', () => {
+            setBaseFontSize();
+        });
+        setBaseFontSize();
+    }) (750, 100)
+</script>
+
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</html>
